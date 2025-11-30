@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Pós Rio - Catálogo de Filmes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Cine Pós Rio</h1>
+            </div>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar filmes..." class="search-input">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                </div>
+                <button id="addMovieBtn" class="add-btn">+ Adicionar Filme</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Filmes Section -->
+            <section class="section">
+                <h2 class="section-title">Filmes</h2>
+                <div id="moviesContainer" class="movies-grid">
+                    <!-- Cards serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para adicionar filme -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Novo Filme</h2>
+            <form id="movieForm">
+                <input type="text" id="title" name="title" placeholder="Título" required>
+                <textarea id="description" name="description" placeholder="Descrição" required></textarea>
+                <input type="number" id="year" name="year" placeholder="Ano" required>
+                <input type="text" id="genre" name="genre" placeholder="Gênero" required>
+                <input type="number" id="duration" name="duration" placeholder="Duração (minutos)" required>
+                <select id="ageRating" name="ageRating" required>
+                    <option value="">Classificação Etária</option>
+                    <option value="L">Livre</option>
+                    <option value="10">10 anos</option>
+                    <option value="12">12 anos</option>
+                    <option value="14">14 anos</option>
+                    <option value="16">16 anos</option>
+                    <option value="18">18 anos</option>
+                </select>
+                <input type="url" id="poster" name="poster" placeholder="URL do Poster" required>
+                <button type="submit">Adicionar Filme</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
