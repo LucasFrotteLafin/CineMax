@@ -24,9 +24,10 @@ const Movie = sequelize.define('Movie', {
     type: DataTypes.INTEGER,
     comment: 'Duração em minutos'
   },
-  rating: {
+  ageRating: {
     type: DataTypes.STRING,
-    comment: 'Classificação: L, 10, 12, 14, 16, 18'
+    allowNull: false,
+    comment: 'Idade recomendada: L, 10, 12, 14, 16, 18'
   },
   poster: {
     type: DataTypes.STRING,
