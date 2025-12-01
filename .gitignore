@@ -2,5 +2,5 @@ node_modules/
 .env
 *.log
 .DS_Store
-manual.txt
-guia.md
+dist/
+build/

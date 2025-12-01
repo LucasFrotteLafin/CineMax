@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const routes = require('./routes');
 require('./database/connection');
 
@@ -17,19 +18,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Rotas
+
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
 app.use('/api', routes);
 
-// Rota raiz
 app.get('/', (req, res) => {
-  res.json({ 
-    message: '🎬 CineMax Streaming API',
-    version: '1.0.0',
-    endpoints: {
-      movies: '/api/movies',
-      movieById: '/api/movies/:id'
-    }
-  });
+  res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
 // Iniciar servidor
