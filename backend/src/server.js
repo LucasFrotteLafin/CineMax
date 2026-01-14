@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const routes = require('./routes');
-require('./database/connection');
+const sequelize = require('./database/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,7 +29,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORT}`);
+// Sincronizar banco e iniciar servidor
+sequelize.sync({ alter: true }).then(() => {
+  console.log('✅ Tabelas sincronizadas');
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor rodando na porta ${PORT}`);
+  });
+}).catch(err => {
+  console.error('❌ Erro ao sincronizar:', err);
 });
