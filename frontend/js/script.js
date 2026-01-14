@@ -1,5 +1,5 @@
 // Configuração da API
-const API_BASE_URL = 'https://cinemax-1-bky2.onrender.com/api';
+const API_BASE_URL = '/api';
 
 // Elementos do DOM
 const searchInput = document.getElementById('searchInput');
