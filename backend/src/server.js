@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const routes = require('./routes');
 require('./database/connection');
 
@@ -17,10 +18,13 @@ app.use((req, res, next) => {
   next();
 });
 
+
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
 app.use('/api', routes);
 
 app.get('/', (req, res) => {
-  res.json({ message: '🎬 CineMax API', status: 'online' });
+  res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
 // Iniciar servidor
