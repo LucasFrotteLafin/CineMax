@@ -1,7 +1,5 @@
 // Configuração da API
-const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000/api' 
-    : '/api';
+const API_BASE_URL = 'https://cinemax-1-bky2.onrender.com/api';
 
 // Elementos do DOM
 const searchInput = document.getElementById('searchInput');
